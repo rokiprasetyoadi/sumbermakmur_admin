@@ -5,14 +5,14 @@
 
             $nama_file= $_FILES['nama_file']['name'];
 
-            $id_kategori= $_POST['id_kategori'];
+            $kategori= $_POST['kategori'];
             $deskripsi = $_POST['deskripsi'];
             $tanggal = date('y-m-d');
             $stok = $_POST['stok'];
             $harga = $_POST['harga'];
 
-            $queryinsert = "INSERT INTO produk (nama_produk, nama_file, id_kategori, deskripsi, tanggal, stok, harga)
-                  VALUES ('$nama_produk', '$nama_file', '$id_kategori', '$deskripsi','$tanggal','$stok','$harga')";
+            $queryinsert = "INSERT INTO produk (nama_produk, nama_file, kategori, deskripsi, tanggal, stok, harga)
+                  VALUES ('$nama_produk', '$nama_file', '$kategori', '$deskripsi','$tanggal','$stok','$harga')";
             $resultinsert = mysqli_query($con, $queryinsert);
 
             move_uploaded_file($_FILES['nama_file']['tmp_name'],'foto_produk/'.$_FILES['nama_file']['name']);
@@ -46,16 +46,14 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="level" class="col-sm-3 col-form-label">Kategori</label>
+          <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
           <div class="col-sm-8">
           <div class="controls">
-              <select name="id_kategori">
-                <?php
-                    $querykategori = mysqli_query($con, "SELECT * FROM kategori");
-                    while($row = mysqli_fetch_array($querykategori)){
-                       echo "<option value='$row[id_kategori]'>$row[kategori]</option>";
-                    }
-                 ?>
+              <select name="kategori">
+                <option value="alat pertanian">Alat Pertanian</option>
+                <option value="benih">Benih</option>
+                <option value="bibit">Bibit</option>
+                <option value="pupuk">Pupuk</option>
               </select>
             </div>
           </div>
@@ -69,13 +67,13 @@
         <div class="form-group row">
           <label for="stok" class="col-sm-3 col-form-label">Stok</label>
           <div class="col-sm-8">
-            <input type="number" class="form-control" id="stok" name="stok">
+            <input type="number" class="form-control" id="stok" name="stok" placeholder="Stok">
           </div>
         </div>
         <div class="form-group row">
           <label for="harga" class="col-sm-3 col-form-label">Harga</label>
           <div class="col-sm-8">
-            <input type="number" class="form-control" id="harga" name="harga">
+            <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
           </div>
         </div>
 

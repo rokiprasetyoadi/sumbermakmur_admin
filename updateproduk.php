@@ -1,14 +1,17 @@
+
 <?php
+  include ("connect.php");
+
           if (isset($_POST['buttonUbah'])) {
             $id_produk = $_POST['id_produk'];
             $nama_produk = $_POST['nama_produk'];
-            $id_kategori = $_POST['id_kategori'];
+            $kategori = $_POST['kategori'];
             $deskripsi = $_POST['deskripsi'];
             $tanggal = date('y-m-d');
             $stok = $_POST['stok'];
             $harga = $_POST['harga'];
 
-            $queryupdate = " UPDATE produk SET nama_produk='$nama_produk', id_kategori='id_kategori', deskripsi='$deskripsi', tanggal='$tanggal', stok='$stok', harga='$harga' WHERE id_produk=$id_produk;";
+            $queryupdate = " UPDATE produk SET nama_produk='$nama_produk', kategori='$kategori', deskripsi='$deskripsi', tanggal='$tanggal', stok='$stok', harga='$harga' WHERE id_produk=$id_produk;";
 
             if (mysqli_query($con, $queryupdate)) {
               
@@ -38,6 +41,7 @@
         <?php
           $id = $row['id_produk'];
           $queryselectedit = "SELECT * FROM produk WHERE id_produk=$id";
+          $qry = mysqli_query($con, "select *from produk");
           $resultselectedit = mysqli_query($con, $queryselectedit);
           $rowselectedit = mysqli_fetch_assoc ($resultselectedit);
         ?>
@@ -57,16 +61,17 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="level" class="col-sm-3 col-form-label">Kategori</label>
+          <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
           <div class="col-sm-8">
           <div class="controls">
-              <select name="id_kategori">
-                <?php
-                    $querykategori = mysqli_query($con, "SELECT * FROM kategori");
-                    while($row = mysqli_fetch_array($querykategori)){
-                       echo "<option value='$row[id_kategori]'>$row[kategori]</option>";
-                    }
+              <select name="kategori">
+                <option value="<?php echo $rowselectedit['kategori'] ?>"><?php echo $rowselectedit['kategori'] ?></option>
+                <option value="alat pertanian">Alat Pertanian</option>
+                <?php 
+                  while($baris = mysqli_fetch_array($qry)){
                  ?>
+                <option value="<?php echo $baris['kategori'] ?>"><?php echo $baris['kategori'] ?></option>
+                <?php } ?>
               </select>
             </div>
           </div>

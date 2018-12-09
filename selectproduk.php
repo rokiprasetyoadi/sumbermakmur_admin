@@ -1,5 +1,5 @@
 <?php
-  $queryselect = " SELECT *FROM produk INNER JOIN kategori ON produk.id_kategori=kategori.id_kategori";
+  $queryselect = " SELECT *FROM produk";
   $resultselect = mysqli_query($con, $queryselect);
 ?>
 

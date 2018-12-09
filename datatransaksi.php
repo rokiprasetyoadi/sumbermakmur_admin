@@ -3,7 +3,7 @@
   	include ("connect.php");
 ?>
 
-    	<h4>Data Transaksi</h4>
+    	<h4>Transaksi</h4>
     	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInsertAdmin">Tambahkan Data</button>
 
 		  <table class="table table-striped">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sumber Makmur ADMIN</title>
+	<title>Sumber Makmur</title>
 	<link rel="icon" type="image/png" href="gambar/logo2.png"/>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-grid.css">

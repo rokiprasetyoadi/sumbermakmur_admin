@@ -67,12 +67,14 @@
         </div>
         <div class="form-group row">
           <label for="level" class="col-sm-3 col-form-label">Level</label>
+          <div class="col-sm-8">
           <div class="controls">
               <select name="level">
                 <option value="admin">Admin</option>
                 <option value="superadmin">Superadmin</option>
               </select>
             </div>
+          </div>
         </div>
 
       </div>

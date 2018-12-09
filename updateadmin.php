@@ -71,7 +71,7 @@
           <div class="controls">
               <select name="level">
                 <option value="admin">Admin</option>
-                <option value="dosen">Superadmin</option>
+                <option value="superadmin">Superadmin</option>
               </select>
             </div>
         </div>
